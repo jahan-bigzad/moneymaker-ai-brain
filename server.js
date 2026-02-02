@@ -3,20 +3,11 @@ const app = express();
 
 app.use(express.json());
 
-app.post("/ai", (req, res) => {
-  const userText = req.body.text || "Nothing sent";
-
-  // simple AI brain (echoes back what user says)
-  res.json({
-    reply: "AI received: " + userText
-  });
-});
-
+// ROOT ROUTE (THIS FIXES Cannot GET /)
 app.get("/", (req, res) => {
-  res.send("AI brain running on port 3000");
+  res.send("Server is running ✅");
 });
 
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log("Server running on port " + PORT);
+app.listen(3000, () => {
+  console.log("Server started on http://localhost:3000");
 });
